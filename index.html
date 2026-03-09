@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -97,6 +98,48 @@
         linear-gradient(180deg, transparent 0%, rgba(147,197,253,0.08) 50%, transparent 100%);
       animation: scanMove 6s linear infinite;
       mix-blend-mode: screen;
+    }
+
+    .network-path {
+      position: absolute;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(96,165,250,0.9), transparent);
+      box-shadow: 0 0 14px rgba(96,165,250,0.6);
+      overflow: hidden;
+      opacity: 0.8;
+    }
+
+    .network-path::after {
+      content: "";
+      position: absolute;
+      top: -4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #93c5fd 0%, #3b82f6 65%, transparent 75%);
+      box-shadow: 0 0 18px rgba(147,197,253,0.9);
+      animation: signalMove 4s linear infinite;
+    }
+
+    .path-1 {
+      left: 47%;
+      bottom: 145px;
+      width: 180px;
+      transform: rotate(-8deg);
+    }
+
+    .path-2 {
+      left: 58%;
+      bottom: 185px;
+      width: 165px;
+      transform: rotate(8deg);
+    }
+
+    .path-3 {
+      left: 24%;
+      bottom: 250px;
+      width: 200px;
+      transform: rotate(-16deg);
     }
 
     .datacenter {
@@ -299,6 +342,14 @@
 
     @keyframes scanMove {
       0% { transform: translateX(-12%); }
+      50% { transform: translateX(10%); }
+      100% { transform: translateX(-12%); }
+    }
+
+    @keyframes signalMove {
+      0% { left: -12px; }
+      100% { left: calc(100% - 8px); }
+    }
       50% { transform: translateX(10%); }
       100% { transform: translateX(-12%); }
     }
@@ -580,6 +631,9 @@
 
   <header>
     <div class="hero-bg">
+      <div class="network-path path-1"></div>
+      <div class="network-path path-2"></div>
+      <div class="network-path path-3"></div>
       <div class="datacenter campus-1">
         <div class="dc-roof"></div>
         <div class="dc-door"></div>
@@ -637,6 +691,7 @@
         <div style="margin-top:16px; display:flex; flex-wrap:wrap; gap:10px;">
           <a href="#projects" style="display:inline-block; padding:11px 16px; border-radius:999px; background:#f59e0b; color:#111827; text-decoration:none; font-weight:bold;">View Projects</a>
           <a href="#contact" style="display:inline-block; padding:11px 16px; border-radius:999px; border:1px solid rgba(255,255,255,0.22); color:#ffffff; text-decoration:none; font-weight:bold;">Contact Me</a>
+          <a href="resume.pdf" download style="display:inline-block; padding:11px 16px; border-radius:999px; border:1px solid rgba(59,130,246,0.4); background:rgba(59,130,246,0.14); color:#dbeafe; text-decoration:none; font-weight:bold;">Download Resume</a>
         </div>
       </div>
     </div>
@@ -646,6 +701,7 @@
     <div class="nav-inner">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
+      <a href="#timeline">Timeline</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#education">Education</a>
@@ -704,6 +760,36 @@
         <span>AutoCAD</span>
         <span>Revit</span>
         <span>Technical Documentation</span>
+      </div>
+    </section>
+
+    <section id="timeline">
+      <div class="section-label">PRIMAVERA STYLE TIMELINE</div>
+      <h2>Project Timeline</h2>
+      <div class="timeline">
+        <div class="timeline-item card">
+          <h3>2026 | Project Engineer</h3>
+          <div class="meta">ShrinQ Consulting Group Inc</div>
+          <p>Supporting planning, scheduling, milestone tracking, cost control, and reporting for complex construction programs.</p>
+        </div>
+
+        <div class="timeline-item card">
+          <h3>2025 | Project Controller</h3>
+          <div class="meta">Community Dreams Foundation</div>
+          <p>Handled procurement, budget monitoring, vendor coordination, and change tracking for infrastructure work.</p>
+        </div>
+
+        <div class="timeline-item card">
+          <h3>2024 | Graduate Teaching Assistant</h3>
+          <div class="meta">University of North Texas</div>
+          <p>Supported analytical teaching, Excel modeling, and research workflows in finance and quantitative subjects.</p>
+        </div>
+
+        <div class="timeline-item card">
+          <h3>2020 - 2022 | Project Engineer</h3>
+          <div class="meta">Aparna Constructions and Estates</div>
+          <p>Coordinated residential building delivery through forecasting, reporting, design support, and documentation control.</p>
+        </div>
       </div>
     </section>
 
