@@ -1,84 +1,50 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sai Sankhet G | Project Engineer Portfolio</title>
   <style>
-    :root {
-      --primary: #0f172a;
-      --secondary: #1d4ed8;
-      --light: #f8fafc;
-      --text: #1e293b;
-      --muted: #475569;
-      --card: #ffffff;
-      --border: #e2e8f0;
-      --accent: #dbeafe;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      background: var(--light);
-      color: var(--text);
+      background: #f4f7fb;
+      color: #222;
       line-height: 1.6;
     }
 
     header {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: #0d47a1;
       color: white;
-      padding: 60px 20px;
+      padding: 50px 20px;
       text-align: center;
     }
 
     header h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
+      margin: 0;
+      font-size: 40px;
     }
 
     header p {
       font-size: 18px;
       max-width: 900px;
-      margin: 0 auto 20px;
-    }
-
-    .header-links a {
-      display: inline-block;
-      margin: 8px 10px;
-      padding: 10px 18px;
-      border: 1px solid rgba(255,255,255,0.35);
-      border-radius: 30px;
-      color: white;
-      text-decoration: none;
-      font-size: 14px;
-    }
-
-    .header-links a:hover {
-      background: rgba(255,255,255,0.15);
+      margin: 15px auto 0;
     }
 
     nav {
-      background: white;
-      border-bottom: 1px solid var(--border);
+      background: #08306b;
+      text-align: center;
+      padding: 12px;
       position: sticky;
       top: 0;
-      z-index: 1000;
-      text-align: center;
-      padding: 14px 10px;
     }
 
     nav a {
-      color: var(--primary);
+      color: white;
       text-decoration: none;
-      margin: 0 14px;
+      margin: 0 15px;
       font-weight: bold;
-      font-size: 15px;
     }
 
     .container {
@@ -88,38 +54,37 @@
     }
 
     section {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 30px;
-      margin-bottom: 24px;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+      background: white;
+      margin-bottom: 25px;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
 
     h2 {
-      color: var(--primary);
-      margin-bottom: 18px;
-      font-size: 28px;
+      color: #0d47a1;
+      margin-top: 0;
+      border-bottom: 2px solid #e3eaf5;
+      padding-bottom: 8px;
     }
 
     h3 {
-      color: var(--secondary);
-      margin-bottom: 10px;
-      font-size: 20px;
-    }
-
-    p {
-      color: var(--muted);
-      margin-bottom: 12px;
+      color: #1565c0;
+      margin-bottom: 8px;
     }
 
     ul {
       padding-left: 20px;
-      color: var(--muted);
     }
 
-    li {
-      margin-bottom: 8px;
+    .skills span {
+      display: inline-block;
+      background: #e3f2fd;
+      color: #0d47a1;
+      padding: 8px 12px;
+      margin: 6px;
+      border-radius: 20px;
+      font-size: 14px;
     }
 
     .grid {
@@ -128,52 +93,32 @@
       gap: 20px;
     }
 
-    .skill-box,
-    .project-card,
-    .experience-card,
-    .contact-card,
-    .education-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 20px;
+    .card {
+      background: #f9fbff;
+      border-left: 4px solid #0d47a1;
+      padding: 15px;
+      border-radius: 6px;
     }
 
-    .project-card,
-    .experience-card {
-      border-left: 5px solid var(--secondary);
-    }
-
-    .tag {
-      display: inline-block;
-      background: var(--accent);
-      color: var(--secondary);
-      padding: 6px 12px;
-      border-radius: 20px;
-      margin: 6px 6px 0 0;
-      font-size: 13px;
-      font-weight: bold;
-    }
-
-    .contact-card a {
-      color: var(--secondary);
-      text-decoration: none;
+    a {
+      color: #0d47a1;
     }
 
     footer {
       text-align: center;
-      padding: 25px 20px;
-      color: var(--muted);
-      font-size: 14px;
+      padding: 20px;
+      background: #0d47a1;
+      color: white;
+      margin-top: 30px;
     }
 
     @media (max-width: 768px) {
-      header h1 {
-        font-size: 32px;
-      }
-
       .grid {
         grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 30px;
       }
 
       nav a {
@@ -188,16 +133,10 @@
   <header>
     <h1>Sai Sankhet G</h1>
     <p>
-      Project Engineer & Financial Planning Specialist with 4+ years of experience in
-      infrastructure, civil, MEP, and HVAC projects. Skilled in project planning,
-      scheduling, cost estimation, risk management, and data-driven decision-making.
+      Project Engineer with 4+ years of experience in project planning, scheduling,
+      cost control, risk management, and technical documentation across infrastructure,
+      civil, MEP, and HVAC projects.
     </p>
-    <div class="header-links">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
   </header>
 
   <nav>
@@ -214,170 +153,145 @@
     <section id="about">
       <h2>About Me</h2>
       <p>
-        I am a Strategic Project Engineer with 4+ years of experience in construction
-        management, project engineering, and financial analysis. I currently support
-        multidisciplinary projects involving civil, MEP, and HVAC coordination, with a
-        strong focus on schedule management, cost control, procurement support, reporting,
-        and project performance improvement.
-      </p>
-      <p>
-        My background combines engineering execution with financial planning, allowing me
-        to support both technical and business decisions across complex project environments.
+        I am a Project Engineer with strong experience in project coordination,
+        scheduling, budgeting, reporting, procurement support, and technical documentation.
+        I have worked on construction and infrastructure projects and support teams
+        with both technical and financial planning.
       </p>
     </section>
 
     <section id="skills">
       <h2>Core Skills</h2>
-      <div class="skill-box">
-        <span class="tag">Project Planning</span>
-        <span class="tag">Project Scheduling</span>
-        <span class="tag">Budget Management</span>
-        <span class="tag">Cost Control</span>
-        <span class="tag">Risk Management</span>
-        <span class="tag">Forecasting</span>
-        <span class="tag">Primavera P6</span>
-        <span class="tag">MS Project</span>
-        <span class="tag">Excel</span>
-        <span class="tag">Python</span>
-        <span class="tag">R</span>
-        <span class="tag">SQL</span>
-        <span class="tag">Power BI</span>
-        <span class="tag">AutoCAD</span>
-        <span class="tag">Revit</span>
-        <span class="tag">Technical Documentation</span>
+      <div class="skills">
+        <span>Project Planning</span>
+        <span>Project Scheduling</span>
+        <span>Cost Control</span>
+        <span>Budget Management</span>
+        <span>Risk Management</span>
+        <span>Primavera P6</span>
+        <span>MS Project</span>
+        <span>Excel</span>
+        <span>Python</span>
+        <span>SQL</span>
+        <span>Power BI</span>
+        <span>AutoCAD</span>
+        <span>Revit</span>
+        <span>Technical Documentation</span>
       </div>
     </section>
 
     <section id="experience">
       <h2>Professional Experience</h2>
 
-      <div class="experience-card">
-        <h3>Project Engineer — ShrinQ Consulting Group Inc</h3>
-        <p><strong>January 2026 – Present | Louisville, KY</strong></p>
+      <div class="card">
+        <h3>Project Engineer - ShrinQ Consulting Group Inc</h3>
+        <p><strong>January 2026 - Present</strong></p>
         <ul>
-          <li>Support project planning, scheduling, and cost control for timely and efficient delivery.</li>
-          <li>Perform risk assessment, performance monitoring, and progress analysis.</li>
-          <li>Use Primavera P6, MS Project, and reporting tools to track milestones and resources.</li>
-          <li>Implement project controls best practices and support compliance with standards.</li>
-          <li>Provide transparent reporting to align execution with business objectives.</li>
+          <li>Support project planning, scheduling, and cost control.</li>
+          <li>Track progress, risks, and project performance.</li>
+          <li>Use Primavera P6 and reporting tools for milestone tracking.</li>
+          <li>Support compliance, documentation, and reporting processes.</li>
         </ul>
       </div>
+
       <br>
 
-      <div class="experience-card">
-        <h3>Project Controller — Community Dreams Foundation</h3>
-        <p><strong>March 2025 – January 2026 | Florida, United States</strong></p>
+      <div class="card">
+        <h3>Project Controller - Community Dreams Foundation</h3>
+        <p><strong>March 2025 - January 2026</strong></p>
         <ul>
-          <li>Led engineering support activities for a rural wastewater management project.</li>
-          <li>Managed procurement workflows, vendor coordination, and delivery timelines.</li>
-          <li>Handled budget updates, change-order tracking, and financial reporting.</li>
-          <li>Reviewed construction bids and prepared daily and weekly progress reports.</li>
+          <li>Supported a rural wastewater management project.</li>
+          <li>Managed procurement tracking and vendor coordination.</li>
+          <li>Prepared budget updates, progress reports, and change tracking.</li>
         </ul>
       </div>
+
       <br>
 
-      <div class="experience-card">
-        <h3>Graduate Teaching Assistant (Finance Tutor) — University of North Texas</h3>
-        <p><strong>January 2024 – December 2024</strong></p>
+      <div class="card">
+        <h3>Graduate Teaching Assistant - University of North Texas</h3>
+        <p><strong>January 2024 - December 2024</strong></p>
         <ul>
-          <li>Tutored more than 650 undergraduate students in finance-related courses.</li>
-          <li>Improved student engagement and performance through interactive support sessions.</li>
-          <li>Guided students in Excel for financial modeling and analysis.</li>
-          <li>Supported faculty research using R Studio and data classification methods.</li>
+          <li>Tutored students in finance and analytical subjects.</li>
+          <li>Supported Excel-based financial modeling and analysis.</li>
+          <li>Assisted with research and data analysis.</li>
         </ul>
       </div>
+
       <br>
 
-      <div class="experience-card">
-        <h3>Project Engineer — Aparna Constructions & Estates</h3>
-        <p><strong>December 2020 – December 2022 | Hyderabad</strong></p>
+      <div class="card">
+        <h3>Project Engineer - Aparna Constructions and Estates</h3>
+        <p><strong>December 2020 - December 2022</strong></p>
         <ul>
-          <li>Managed end-to-end construction of residential apartment projects.</li>
-          <li>Developed dashboards, variance analysis, and financial projection models.</li>
-          <li>Oversaw budgeting, cash-flow forecasting, and financial reporting.</li>
-          <li>Performed risk assessments and applied corrective actions to avoid overruns.</li>
-          <li>Worked with AutoCAD and Revit for design coordination and documentation.</li>
+          <li>Managed residential construction project activities.</li>
+          <li>Supported budgeting, cash flow forecasting, and reporting.</li>
+          <li>Performed risk assessment and variance analysis.</li>
+          <li>Worked with AutoCAD and Revit for coordination and documentation.</li>
         </ul>
       </div>
+
       <br>
 
-      <div class="experience-card">
-        <h3>Project Intern — Bharat Heavy Electricals Limited</h3>
-        <p><strong>June 2019 – December 2019 | Hyderabad, Telangana, India</strong></p>
+      <div class="card">
+        <h3>Project Intern - Bharat Heavy Electricals Limited</h3>
+        <p><strong>June 2019 - December 2019</strong></p>
         <ul>
-          <li>Supported operation and monitoring of electrical manufacturing systems.</li>
-          <li>Assisted with equipment testing, inspections, and performance evaluation.</li>
-          <li>Applied electrical engineering fundamentals to support project activities.</li>
+          <li>Supported electrical systems monitoring and testing.</li>
+          <li>Assisted in inspections and equipment performance checks.</li>
         </ul>
       </div>
     </section>
 
     <section id="projects">
-      <h2>Featured Portfolio Projects</h2>
+      <h2>Featured Projects</h2>
       <div class="grid">
-
-        <div class="project-card">
-          <h3>Integrated Schedule Tracking</h3>
-          <p>
-            Built and maintained project schedules to monitor milestones, progress, delays,
-            and resource alignment across multidisciplinary project activities.
-          </p>
+        <div class="card">
+          <h3>Schedule Tracking</h3>
+          <p>Created and maintained project schedules to track progress, milestones, and delays.</p>
         </div>
 
-        <div class="project-card">
-          <h3>Cost & Budget Dashboard</h3>
-          <p>
-            Developed reporting structures for budget updates, cost tracking, variance analysis,
-            and financial visibility to support project leadership decisions.
-          </p>
+        <div class="card">
+          <h3>Cost Dashboard</h3>
+          <p>Prepared budget and cost tracking reports to improve project visibility.</p>
         </div>
 
-        <div class="project-card">
-          <h3>Risk and Performance Monitoring</h3>
-          <p>
-            Supported risk assessment, issue tracking, and performance analysis to improve
-            project execution and reduce schedule and budget impacts.
-          </p>
+        <div class="card">
+          <h3>Risk Monitoring</h3>
+          <p>Supported issue logs, risk tracking, and mitigation follow-up for project teams.</p>
         </div>
 
-        <div class="project-card">
-          <h3>Procurement & Change Order Support</h3>
-          <p>
-            Coordinated procurement workflows, material tracking, vendor compliance, and
-            change-order documentation for infrastructure and construction projects.
-          </p>
+        <div class="card">
+          <h3>Procurement Support</h3>
+          <p>Tracked procurement workflows, vendor coordination, and delivery timelines.</p>
         </div>
-
       </div>
     </section>
 
     <section id="education">
       <h2>Education</h2>
-      <div class="education-card">
+      <div class="card">
         <h3>University of North Texas</h3>
-        <p><strong>Master’s Degree, Financial Mathematics</strong></p>
-        <p>January 2023 – December 2024</p>
+        <p>Masters Degree, Financial Mathematics</p>
       </div>
       <br>
-      <div class="education-card">
-        <h3>Gandhi Institute of Technology and Management (GITAM)</h3>
-        <p><strong>Bachelor’s Degree, Business / Commerce, General</strong></p>
+      <div class="card">
+        <h3>GITAM University</h3>
+        <p>Bachelors Degree</p>
       </div>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
-      <div class="contact-card">
-        <p><strong>Email:</strong> <a href="mailto:saisankhetgubbala@gmail.com">saisankhetgubbala@gmail.com</a></p>
-        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/saisankhetgubbala" target="_blank">linkedin.com/in/saisankhetgubbala</a></p>
-        <p><strong>Location:</strong> Raleigh-Durham-Chapel Hill Area</p>
-      </div>
+      <p><strong>Email:</strong> <a href="mailto:saisankhetgubbala@gmail.com">saisankhetgubbala@gmail.com</a></p>
+      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/saisankhetgubbala" target="_blank">linkedin.com/in/saisankhetgubbala</a></p>
+      <p><strong>Location:</strong> Raleigh-Durham-Chapel Hill Area</p>
     </section>
 
   </div>
 
   <footer>
-    <p>© 2026 Sai Sankhet G | Project Engineer Portfolio</p>
+    <p>Copyright 2026 Sai Sankhet G | Project Engineer Portfolio</p>
   </footer>
 
 </body>
