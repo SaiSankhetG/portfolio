@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sai Sankhet G | Project Engineer Portfolio</title>
+  <style>
+    :root {
+      --bg: #060b14;
+      --bg-soft: #0b1220;
+      --card: rgba(15, 23, 42, 0.82);
+      --card-strong: #111827;
+      --text: #e5eef9;
+      --muted: #94a3b8;
+      --line: rgba(148, 163, 184, 0.18);
+      --blue: #60a5fa;
+      --blue-strong: #2563eb;
+      --cyan: #67e8f9;
+      --amber: #f59e0b;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.32);
+      --radius: 24px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(37, 99, 235, 0.22), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.10), transparent 24%),
+        linear-gradient(180deg, #04070d 0%, #060b14 100%);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(16px);
+      background: rgba(5, 10, 18, 0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 16px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 21px;
+      letter-spacing: 0.4px;
+    }
+
+    .brand span { color: var(--amber); }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover { color: #fff; }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.18;
+      filter: brightness(0.45) contrast(1.1);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(4,7,13,0.35) 0%, rgba(4,7,13,0.72) 55%, rgba(4,7,13,0.96) 100%),
+        radial-gradient(circle at right top, rgba(103,232,249,0.08), transparent 20%),
+        radial-gradient(circle at 20% 10%, rgba(96,165,250,0.15), transparent 22%);
+    }
+
+    .grid-glow {
+      position: absolute;
+      left: -8%;
+      right: -8%;
+      bottom: -52px;
+      height: 280px;
+      background:
+        linear-gradient(to top, rgba(96,165,250,0.10), transparent),
+        repeating-linear-gradient(90deg, rgba(103,232,249,0.12) 0 1px, transparent 1px 44px),
+        repeating-linear-gradient(0deg, rgba(103,232,249,0.10) 0 1px, transparent 1px 44px);
+      transform: perspective(650px) rotateX(73deg);
+      transform-origin: bottom;
+      opacity: 0.7;
+    }
+
+    .signal {
+      position: absolute;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(103,232,249,0.95), transparent);
+      box-shadow: 0 0 16px rgba(96,165,250,0.55);
+      overflow: hidden;
+      opacity: 0.75;
+    }
+
+    .signal::after {
+      content: "";
+      position: absolute;
+      top: -4px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #bae6fd 0%, #3b82f6 68%, transparent 75%);
+      box-shadow: 0 0 20px rgba(147,197,253,0.85);
+      animation: signalMove 4.5s linear infinite;
+    }
+
+    .signal-1 { width: 210px; left: 57%; bottom: 185px; transform: rotate(8deg); }
+    .signal-2 { width: 180px; left: 46%; bottom: 150px; transform: rotate(-9deg); }
+    .signal-3 { width: 200px; left: 24%; bottom: 255px; transform: rotate(-16deg); }
+
+    .orb {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(186,230,253,1) 0%, rgba(59,130,246,0.72) 50%, transparent 74%);
+      box-shadow: 0 0 28px rgba(96,165,250,0.7);
+      animation: floatOrb 7s ease-in-out infinite;
+    }
+
+    .orb-1 { left: 14%; top: 18%; }
+    .orb-2 { left: 76%; top: 20%; animation-delay: 1.6s; }
+    .orb-3 { left: 62%; top: 32%; animation-delay: 0.8s; }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 90px 22px 40px;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(103,232,249,0.28);
+      color: var(--cyan);
+      background: rgba(103,232,249,0.06);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: 62px;
+      line-height: 1.04;
+      letter-spacing: -1.5px;
+    }
+
+    h1 .accent { color: var(--amber); }
+
+    .hero-copy p {
+      margin: 0 0 24px;
+      max-width: 760px;
+      font-size: 18px;
+      line-height: 1.85;
+      color: #bfd1e6;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 800;
+      transition: transform .2s ease, background .2s ease, border .2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--amber), #fbbf24);
+      color: #111827;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.04);
+      color: #fff;
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(96,165,250,0.32);
+      background: rgba(37, 99, 235, 0.12);
+      color: #dbeafe;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #dce9f7;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .hero-panel {
+      background: linear-gradient(180deg, rgba(15,23,42,0.84), rgba(15,23,42,0.68));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(96,165,250,0.10), transparent 42%);
+      pointer-events: none;
+    }
+
+    .panel-label {
+      color: var(--amber);
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .panel-title {
+      margin: 0 0 18px;
+      font-size: 30px;
+      line-height: 1.2;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin: 20px 0;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 26px;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+
+    .stat span, .panel-list li, .panel-text {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .panel-list {
+      margin: 16px 0 0;
+      padding-left: 18px;
+    }
+
+    .section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 22px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .mini-label {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(245,158,11,0.10);
+      border: 1px solid rgba(245,158,11,0.22);
+      color: #fdba74;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 36px;
+      line-height: 1.1;
+      letter-spacing: -0.8px;
+    }
+
+    .section-desc {
+      margin: 0;
+      max-width: 780px;
+      color: var(--muted);
+      line-height: 1.85;
+    }
+
+    .grid-2, .grid-3, .grid-4 {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-2 { grid-template-columns: 1.1fr 0.9fr; }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+    .card {
+      background: linear-gradient(180deg, rgba(17,24,39,0.95), rgba(15,23,42,0.82));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(96,165,250,0.08), transparent 36%);
+      pointer-events: none;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      line-height: 1.25;
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    .list {
+      margin: 12px 0 0;
+      padding-left: 18px;
+    }
+
+    .deliver-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .deliver-item {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      color: #dbeafe;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .skill-chip-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-chip {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(59,130,246,0.10);
+      border: 1px solid rgba(96,165,250,0.22);
+      color: #dbeafe;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 22px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(17,24,39,0.95), rgba(15,23,42,0.82));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .time-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 10px 12px;
+      border-radius: 18px;
+      background: rgba(245,158,11,0.10);
+      color: #fdba74;
+      border: 1px solid rgba(245,158,11,0.22);
+      font-weight: 800;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .meta {
+      color: var(--cyan);
+      font-size: 14px;
+      font-weight: 700;
+      margin: 8px 0 10px;
+    }
+
+    .project-card {
+      min-height: 280px;
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: start;
+      margin-bottom: 10px;
+    }
+
+    .project-badge {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(96,165,250,0.10);
+      border: 1px solid rgba(96,165,250,0.20);
+      color: #bfdbfe;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .contact-card {
+      text-align: center;
+      padding: 34px 24px;
+      margin-bottom: 40px;
+      background: linear-gradient(135deg, rgba(37,99,235,0.16), rgba(245,158,11,0.10));
+    }
+
+    .contact-card p {
+      max-width: 720px;
+      margin: 14px auto 24px;
+      color: #c2d3e7;
+      line-height: 1.85;
+    }
+
+    .footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      color: var(--muted);
+      text-align: center;
+      padding: 24px 20px 34px;
+      font-size: 14px;
+    }
+
+    @keyframes signalMove {
+      0% { left: -12px; }
+      100% { left: calc(100% - 8px); }
+    }
+
+    @keyframes floatOrb {
+      0%, 100% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-20px) translateX(8px); }
+    }
+
+    @media (max-width: 1024px) {
+      .hero-inner,
+      .grid-2,
+      .grid-3,
+      .grid-4 {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-inner { align-items: start; }
+      h1 { font-size: 48px; }
+      .signal-3 { display: none; }
+    }
+
+    @media (max-width: 760px) {
+      .nav-inner { flex-direction: column; align-items: flex-start; }
+      .hero-inner,
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .deliver-list,
+      .stat-grid,
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-inner {
+        padding-top: 78px;
+        min-height: auto;
+      }
+
+      h1 { font-size: 36px; }
+      h2 { font-size: 30px; }
+      .hero-copy p { font-size: 16px; }
+      .signal-2, .orb-3 { display: none; }
+      .timeline-item { gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="brand">Sai<span>.</span>Portfolio</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="original-04a1afdda6897d1405db8f528695c801.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="signal signal-1"></div>
+    <div class="signal signal-2"></div>
+    <div class="signal signal-3"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="grid-glow"></div>
+
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <div class="eyebrow">Project Engineer | Construction | Data Centers</div>
+        <h1>Building <span class="accent">mission-critical</span> projects with clarity, control, and execution.</h1>
+        <p>
+          I am Sai Sankhet G, a Project Engineer with 4+ years of experience across infrastructure, residential construction, civil, MEP, HVAC, cost control, scheduling, procurement coordination, and technical documentation. I focus on delivering structured project execution in complex and high-visibility environments.
+        </p>
+        <div class="button-row">
+          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <a class="btn btn-secondary" href="#contact">Contact Me</a>
+          <a class="btn btn-outline" href="resume.pdf" download>Download Resume</a>
+        </div>
+        <div class="tag-row">
+          <span class="tag">Mission-Critical Delivery</span>
+          <span class="tag">Primavera P6</span>
+          <span class="tag">Cost Control</span>
+          <span class="tag">MEP Coordination</span>
+          <span class="tag">Data Center Focus</span>
+        </div>
+      </div>
+
+      <div class="hero-panel">
+        <div class="panel-label">Profile Snapshot</div>
+        <h2 class="panel-title">Project engineering with a strong planning and controls mindset.</h2>
+        <div class="stat-grid">
+          <div class="stat"><strong>4+</strong><span>Years across construction and infrastructure projects</span></div>
+          <div class="stat"><strong>5</strong><span>Key areas: planning, controls, cost, coordination, documentation</span></div>
+          <div class="stat"><strong>MEP</strong><span>Hands-on exposure to multidisciplinary building environments</span></div>
+          <div class="stat"><strong>AI/DC</strong><span>Strong interest in mission-critical and data center delivery</span></div>
+        </div>
+        <div class="panel-text">Location: Raleigh-Durham-Chapel Hill Area<br>Email: saisankhetgubbala@gmail.com<br>LinkedIn: linkedin.com/in/saisankhetgubbala</div>
+        <ul class="panel-list">
+          <li>Primavera P6, MS Project, Excel, Power BI, Python, AutoCAD, Revit</li>
+          <li>Project planning, procurement support, change tracking, budget visibility</li>
+          <li>Open to Project Engineer and Project Controls opportunities</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" id="about">
+    <div class="section-head">
+      <div>
+        <div class="mini-label">Project Summary</div>
+        <h2>About Me</h2>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>What I bring to a project team</h3>
+        <p>
+          I combine engineering execution with financial planning and analytical thinking to support projects from planning through close coordination and reporting. My background includes schedule tracking, budget monitoring, forecasting, procurement support, and technical documentation.
+        </p>
+        <p>
+          I have worked with multidisciplinary teams across infrastructure and residential construction, helping improve visibility into project performance and aligning work with schedule, cost, and delivery objectives.
+        </p>
+      </div>
+      <div class="card">
+        <h3>What I deliver</h3>
+        <div class="deliver-list">
+          <div class="deliver-item">Integrated scheduling and milestone tracking</div>
+          <div class="deliver-item">Budget updates and cost variance monitoring</div>
+          <div class="deliver-item">Risk identification and issue follow-up</div>
+          <div class="deliver-item">Procurement coordination and reporting support</div>
+          <div class="deliver-item">Technical documentation management</div>
+          <div class="deliver-item">Cross-functional engineering coordination</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="mini-label">Tools & Capabilities</div>
+    <h2>Core Skills</h2>
+    <p class="section-desc">A practical blend of project controls, engineering support, construction coordination, and data-driven reporting tools.</p>
+    <div class="card">
+      <div class="skill-chip-wrap">
+        <span class="skill-chip">Project Planning</span>
+        <span class="skill-chip">Project Scheduling</span>
+        <span class="skill-chip">Budget Management</span>
+        <span class="skill-chip">Cost Estimation</span>
+        <span class="skill-chip">Risk Management</span>
+        <span class="skill-chip">Forecasting</span>
+        <span class="skill-chip">Primavera P6</span>
+        <span class="skill-chip">MS Project</span>
+        <span class="skill-chip">Excel</span>
+        <span class="skill-chip">Python</span>
+        <span class="skill-chip">R</span>
+        <span class="skill-chip">SQL</span>
+        <span class="skill-chip">Power BI</span>
+        <span class="skill-chip">AutoCAD</span>
+        <span class="skill-chip">Revit</span>
+        <span class="skill-chip">Technical Documentation</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="timeline">
+    <div class="mini-label">Primavera Style Timeline</div>
+    <h2>Career Timeline</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="time-badge">2026 - Present</div>
+        <div>
+          <h3>Project Engineer</h3>
+          <div class="meta">ShrinQ Consulting Group Inc</div>
+          <p>Supporting planning, scheduling, milestone tracking, cost control, and performance reporting for complex construction programs.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="time-badge">2025 - 2026</div>
+        <div>
+          <h3>Project Controller</h3>
+          <div class="meta">Community Dreams Foundation</div>
+          <p>Handled procurement, budget monitoring, vendor coordination, change tracking, and reporting for infrastructure work.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="time-badge">2024</div>
+        <div>
+          <h3>Graduate Teaching Assistant</h3>
+          <div class="meta">University of North Texas</div>
+          <p>Supported analytical teaching, Excel-based modeling, and research workflows in finance and quantitative subjects.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="time-badge">2020 - 2022</div>
+        <div>
+          <h3>Project Engineer</h3>
+          <div class="meta">Aparna Constructions and Estates</div>
+          <p>Coordinated residential building delivery through forecasting, reporting, design support, and documentation control.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experience">
+    <div class="mini-label">Professional Experience</div>
+    <h2>Experience Highlights</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Project Engineer | ShrinQ Consulting Group Inc</h3>
+        <div class="meta">January 2026 - Present | Louisville, KY</div>
+        <ul class="list">
+          <li>Support project planning, scheduling, and cost control for efficient delivery.</li>
+          <li>Monitor risks, performance metrics, and progress across multidisciplinary workstreams.</li>
+          <li>Use Primavera P6, MS Project, and reporting tools for milestone and resource tracking.</li>
+          <li>Improve project control processes and reporting visibility.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Project Controller | Community Dreams Foundation</h3>
+        <div class="meta">March 2025 - January 2026 | Florida, United States</div>
+        <ul class="list">
+          <li>Supported engineering activities for a rural wastewater management project.</li>
+          <li>Managed procurement workflows, material tracking, and vendor coordination.</li>
+          <li>Handled budget updates, change-order tracking, and progress reporting.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Graduate Teaching Assistant | University of North Texas</h3>
+        <div class="meta">January 2024 - December 2024</div>
+        <ul class="list">
+          <li>Tutored 650+ students in finance-related courses and analytical methods.</li>
+          <li>Supported Excel-based financial modeling and research analysis using R.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Project Engineer | Aparna Constructions and Estates</h3>
+        <div class="meta">December 2020 - December 2022 | Hyderabad</div>
+        <ul class="list">
+          <li>Managed residential construction project execution aligned with design and schedule goals.</li>
+          <li>Developed dashboards, variance analysis, and financial projection models.</li>
+          <li>Supported budgeting, forecasting, and technical coordination with AutoCAD and Revit.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="mini-label">Featured Work</div>
+    <h2>Portfolio Highlights</h2>
+    <p class="section-desc">Examples of the project value I bring through planning, cost control, procurement support, and multidisciplinary coordination.</p>
+    <div class="grid-2">
+      <div class="card project-card">
+        <div class="project-top">
+          <h3>Modular Project Schedule Tracking</h3>
+          <span class="project-badge">Scheduling</span>
+        </div>
+        <p>Managed integrated schedules, tracked milestones, and monitored resource planning to support timely delivery across civil, MEP, and HVAC scope areas.</p>
+        <ul class="list">
+          <li>Baseline schedule review and updates</li>
+          <li>Milestone tracking and reporting support</li>
+          <li>Early identification of schedule risks</li>
+        </ul>
+      </div>
+      <div class="card project-card">
+        <div class="project-top">
+          <h3>Construction Cost Dashboard</h3>
+          <span class="project-badge">Cost Control</span>
+        </div>
+        <p>Built reporting workflows for budget monitoring, cost variance analysis, and financial visibility to support project leadership decisions.</p>
+        <ul class="list">
+          <li>Budget vs actual tracking</li>
+          <li>Forecast updates and variance analysis</li>
+          <li>Management-ready reporting views</li>
+        </ul>
+      </div>
+      <div class="card project-card">
+        <div class="project-top">
+          <h3>Wastewater Infrastructure Coordination</h3>
+          <span class="project-badge">Infrastructure</span>
+        </div>
+        <p>Supported procurement, budget controls, change tracking, and stakeholder reporting for a rural infrastructure improvement project.</p>
+        <ul class="list">
+          <li>Vendor coordination and delivery tracking</li>
+          <li>Procurement log maintenance</li>
+          <li>Change order documentation support</li>
+        </ul>
+      </div>
+      <div class="card project-card">
+        <div class="project-top">
+          <h3>Residential Building Delivery</h3>
+          <span class="project-badge">Construction</span>
+        </div>
+        <p>Oversaw project coordination, forecasting, technical documentation, and design review support for apartment construction projects.</p>
+        <ul class="list">
+          <li>Cross-team coordination with design and site teams</li>
+          <li>Budgeting and cash flow support</li>
+          <li>Documentation control and updates</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="education">
+    <div class="mini-label">Academic Foundation</div>
+    <h2>Education</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>University of North Texas</h3>
+        <div class="meta">Master's Degree | Financial Mathematics | 2023 - 2024</div>
+        <p>Built advanced analytical, financial modeling, and quantitative decision-making skills that support data-driven project environments.</p>
+      </div>
+      <div class="card">
+        <h3>Gandhi Institute of Technology and Management</h3>
+        <div class="meta">Bachelor's Degree</div>
+        <p>Established a foundation in technical problem-solving, engineering support, and project-oriented work.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="card contact-card">
+      <div class="mini-label">Contact</div>
+      <h2>Let's build something great.</h2>
+      <p>
+        I am open to Project Engineer and Project Controls opportunities in construction, infrastructure, and mission-critical project environments. Let’s connect if you are hiring for roles involving planning, controls, coordination, and data center delivery.
+      </p>
+      <div class="button-row" style="justify-content:center; margin-bottom: 0;">
+        <a class="btn btn-primary" href="mailto:saisankhetgubbala@gmail.com">Email Me</a>
+        <a class="btn btn-secondary" href="https://www.linkedin.com/in/saisankhetgubbala" target="_blank">LinkedIn</a>
+        <a class="btn btn-outline" href="#experience">View Experience</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">Copyright 2026 Sai Sankhet G | Project Engineer Portfolio</div>
+</body>
+</html>
